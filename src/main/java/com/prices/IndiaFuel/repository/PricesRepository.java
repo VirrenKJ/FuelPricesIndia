@@ -8,8 +8,6 @@ import java.util.List;
 import java.util.Optional;
 
 public interface PricesRepository extends JpaRepository<Prices, Long> {
-    //boolean findByPriceDate(String priceDate);
-
     List<Prices> findByCityName(String cityName);
 
     List<Prices> findByPriceDate(String priceDate);
