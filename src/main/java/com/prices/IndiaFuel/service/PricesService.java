@@ -103,6 +103,7 @@ public class PricesService {
         if (pricesRepository.findByStateName(stateName).size() == 0) {
             jsonDataSPost();
         }
+
         return pricesRepository.findByStateName(stateName);
     }
 }
