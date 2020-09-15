@@ -103,7 +103,201 @@ public class PricesService {
         if (pricesRepository.findByStateName(stateName).size() == 0) {
             jsonDataSPost();
         }
-
         return pricesRepository.findByStateName(stateName);
     }
+
+    public List<Prices> fuelPriceByCityLastTenDaysS(String cityName, String priceDate){
+        return pricesRepository.findByPriceDateLimit(cityName, priceDate);
+    }
+//    public ArrayList<Prices> fuelPriceByCityLastTenDaysS(String cityName, String priceDate) {
+//        String[] arrOfPriceDate = priceDate.split("-", 3);
+//        String priceYear = arrOfPriceDate[0];
+//        String priceMonth = arrOfPriceDate[1];
+//        String priceDay = arrOfPriceDate[2];
+//        int intPriceYear = Integer.parseInt(priceYear);
+//        int intPriceMonth = Integer.parseInt(priceMonth);
+//        int intPriceDay = Integer.parseInt(priceDay);
+//
+//        ArrayList<Prices> prices = new ArrayList<>();
+//        //for changing years, in month of january, if date is less that Jan 10th
+//        if (intPriceMonth == 1 && intPriceDay < 10){
+//            for(int i =intPriceDay; i > 0; i--){
+//                int newIntPriceDay = i;
+//                int newIntPriceMonth = intPriceMonth;
+//                int newIntPriceYear = intPriceYear;
+//                String newStringPriceDay = Integer.toString(newIntPriceDay);
+//                String newStringPriceMonth = Integer.toString(newIntPriceMonth);
+//                String newStringPriceYear = Integer.toString(newIntPriceYear);
+//                String newPriceDate = String.join(newStringPriceDay, newStringPriceMonth, newStringPriceYear);
+//                Prices pricesByCityAndDate = pricesRepository.findByCityNameAndPriceDateNamedParamsNative(cityName, newPriceDate);
+//                prices.add(pricesByCityAndDate);
+//            }
+//            for(int i =32-(10-intPriceDay); i < 32; i++){
+//                int newIntPriceDay = i;
+//                int newIntPriceMonth = 12;
+//                int newIntPriceYear = intPriceYear-1;
+//                String newStringPriceDay = Integer.toString(newIntPriceDay);
+//                String newStringPriceMonth = Integer.toString(newIntPriceMonth);
+//                String newStringPriceYear = Integer.toString(newIntPriceYear);
+//                String newPriceDate = String.join(newStringPriceDay, newStringPriceMonth, newStringPriceYear);
+//                Prices pricesByCityAndDate = pricesRepository.findByCityNameAndPriceDateNamedParamsNative(cityName, newPriceDate);
+//                prices.add(pricesByCityAndDate);
+//            }
+//        }
+//
+//        //to check leap year
+//        boolean leapYear = true ;
+//        if (intPriceYear % 4 == 0) {
+//            if (intPriceYear % 100 == 0) {
+//                if (intPriceYear % 400 ==0) {
+//                    leapYear = true;
+//                }
+//                else{
+//                    leapYear= false;
+//                }
+//            }
+//            else{
+//                leapYear=true;
+//            }
+//        }
+//        else{
+//            leapYear = false;
+//        }
+//
+//        //for entering into month of february
+//        if (leapYear == false){
+//            if (intPriceMonth == 3 && intPriceDay < 10){
+//                for(int i =intPriceDay; i > 0; i--){
+//                    int newIntPriceDay = i;
+//                    int newIntPriceMonth = intPriceMonth;
+//                    int newIntPriceYear = intPriceYear;
+//                    String newStringPriceDay = Integer.toString(newIntPriceDay);
+//                    String newStringPriceMonth = Integer.toString(newIntPriceMonth);
+//                    String newStringPriceYear = Integer.toString(newIntPriceYear);
+//                    String newPriceDate = String.join(newStringPriceDay, newStringPriceMonth, newStringPriceYear);
+//                    Prices pricesByCityAndDate = pricesRepository.findByCityNameAndPriceDateNamedParamsNative(cityName, newPriceDate);
+//                    prices.add(pricesByCityAndDate);
+//                }
+//                for(int i =29-(10-intPriceDay); i < 29; i++){
+//                    int newIntPriceDay = i;
+//                    int newIntPriceMonth = intPriceMonth-1;
+//                    int newIntPriceYear = intPriceYear;
+//                    String newStringPriceDay = Integer.toString(newIntPriceDay);
+//                    String newStringPriceMonth = Integer.toString(newIntPriceMonth);
+//                    String newStringPriceYear = Integer.toString(newIntPriceYear);
+//                    String newPriceDate = String.join(newStringPriceDay, newStringPriceMonth, newStringPriceYear);
+//                    Prices pricesByCityAndDate = pricesRepository.findByCityNameAndPriceDateNamedParamsNative(cityName, newPriceDate);
+//                    prices.add(pricesByCityAndDate);
+//                }
+//            }
+//        }
+//        else{
+//            if (intPriceMonth == 3 && intPriceDay < 10){
+//                for(int i =intPriceDay; i > 0; i--){
+//                    int newIntPriceDay = i;
+//                    int newIntPriceMonth = intPriceMonth;
+//                    int newIntPriceYear = intPriceYear;
+//                    String newStringPriceDay = Integer.toString(newIntPriceDay);
+//                    String newStringPriceMonth = Integer.toString(newIntPriceMonth);
+//                    String newStringPriceYear = Integer.toString(newIntPriceYear);
+//                    String newPriceDate = String.join(newStringPriceDay, newStringPriceMonth, newStringPriceYear);
+//                    Prices pricesByCityAndDate = pricesRepository.findByCityNameAndPriceDateNamedParamsNative(cityName, newPriceDate);
+//                    prices.add(pricesByCityAndDate);
+//                }
+//                for(int i =30-(10-intPriceDay); i < 30; i++){
+//                    int newIntPriceDay = i;
+//                    int newIntPriceMonth = intPriceMonth-1;
+//                    int newIntPriceYear = intPriceYear;
+//                    String newStringPriceDay = Integer.toString(newIntPriceDay);
+//                    String newStringPriceMonth = Integer.toString(newIntPriceMonth);
+//                    String newStringPriceYear = Integer.toString(newIntPriceYear);
+//                    String newPriceDate = String.join(newStringPriceDay, newStringPriceMonth, newStringPriceYear);
+//                    Prices pricesByCityAndDate = pricesRepository.findByCityNameAndPriceDateNamedParamsNative(cityName, newPriceDate);
+//                    prices.add(pricesByCityAndDate);
+//                }
+//            }
+//        }
+//
+//        //for entering into months with 31 days
+//        if (intPriceMonth == 2 || intPriceMonth == 4 || intPriceMonth == 6 || intPriceMonth == 8
+//                || intPriceMonth == 9 || intPriceMonth == 11 && intPriceDay < 10){
+//            for(int i =intPriceDay; i > 0; i--){
+//                int newIntPriceDay = i;
+//                int newIntPriceMonth = intPriceMonth;
+//                int newIntPriceYear = intPriceYear;
+//                String newStringPriceDay = Integer.toString(newIntPriceDay);
+//                String newStringPriceMonth = Integer.toString(newIntPriceMonth);
+//                String newStringPriceYear = Integer.toString(newIntPriceYear);
+//                String newPriceDate = String.join(newStringPriceDay, newStringPriceMonth, newStringPriceYear);
+//                Prices pricesByCityAndDate = pricesRepository.findByCityNameAndPriceDateNamedParamsNative(cityName, newPriceDate);
+//                prices.add(pricesByCityAndDate);
+//            }
+//            for(int i =32-(10-intPriceDay); i < 32; i++){
+//                int newIntPriceDay = i;
+//                int newIntPriceMonth = intPriceMonth-1;
+//                int newIntPriceYear = intPriceYear;
+//                String newStringPriceDay = Integer.toString(newIntPriceDay);
+//                String newStringPriceMonth = Integer.toString(newIntPriceMonth);
+//                String newStringPriceYear = Integer.toString(newIntPriceYear);
+//                String newPriceDate = String.join(newStringPriceDay, newStringPriceMonth, newStringPriceYear);
+//                Prices pricesByCityAndDate = pricesRepository.findByCityNameAndPriceDateNamedParamsNative(cityName, newPriceDate);
+//                prices.add(pricesByCityAndDate);
+//            }
+//        }
+//        if (intPriceMonth == 2 || intPriceMonth == 4 || intPriceMonth == 6 || intPriceMonth == 8 || intPriceMonth == 9
+//                || intPriceMonth == 11 && intPriceDay >= 10){
+//            for(int i =intPriceDay; i > intPriceDay-10; i--){
+//                int newIntPriceDay = i;
+//                int newIntPriceMonth = intPriceMonth;
+//                int newIntPriceYear = intPriceYear;
+//                String newStringPriceDay = Integer.toString(newIntPriceDay);
+//                String newStringPriceMonth = Integer.toString(newIntPriceMonth);
+//                String newStringPriceYear = Integer.toString(newIntPriceYear);
+//                String newPriceDate = String.join(newStringPriceDay, newStringPriceMonth, newStringPriceYear);
+//                Prices pricesByCityAndDate = pricesRepository.findByCityNameAndPriceDateNamedParamsNative(cityName, newPriceDate);
+//                prices.add(pricesByCityAndDate);
+//            }
+//        }
+//
+//        //for entering into months with 30 days
+//        if (intPriceMonth == 5 || intPriceMonth == 7 || intPriceMonth == 10 || intPriceMonth == 12 && intPriceDay < 10){
+//            for(int i =intPriceDay; i > 0; i--){
+//                int newIntPriceDay = i;
+//                int newIntPriceMonth = intPriceMonth;
+//                int newIntPriceYear = intPriceYear;
+//                String newStringPriceDay = Integer.toString(newIntPriceDay);
+//                String newStringPriceMonth = Integer.toString(newIntPriceMonth);
+//                String newStringPriceYear = Integer.toString(newIntPriceYear);
+//                String newPriceDate = String.join(newStringPriceDay, newStringPriceMonth, newStringPriceYear);
+//                Prices pricesByCityAndDate = pricesRepository.findByCityNameAndPriceDateNamedParamsNative(cityName, newPriceDate);
+//                prices.add(pricesByCityAndDate);
+//            }
+//            for(int i =31-(10-intPriceDay); i < 31; i++){
+//                int newIntPriceDay = i;
+//                int newIntPriceMonth = intPriceMonth-1;
+//                int newIntPriceYear = intPriceYear;
+//                String newStringPriceDay = Integer.toString(newIntPriceDay);
+//                String newStringPriceMonth = Integer.toString(newIntPriceMonth);
+//                String newStringPriceYear = Integer.toString(newIntPriceYear);
+//                String newPriceDate = String.join(newStringPriceDay, newStringPriceMonth, newStringPriceYear);
+//                Prices pricesByCityAndDate = pricesRepository.findByCityNameAndPriceDateNamedParamsNative(cityName, newPriceDate);
+//                prices.add(pricesByCityAndDate);
+//            }
+//        }
+//        if (intPriceMonth == 1 || intPriceMonth == 3 || intPriceMonth == 5 || intPriceMonth == 7 || intPriceMonth == 10
+//                || intPriceMonth == 12 && intPriceDay >= 10){
+//            for(int i =intPriceDay; i > intPriceDay-10; i--){
+//                int newIntPriceDay = i;
+//                int newIntPriceMonth = intPriceMonth;
+//                int newIntPriceYear = intPriceYear;
+//                String newStringPriceDay = Integer.toString(newIntPriceDay);
+//                String newStringPriceMonth = Integer.toString(newIntPriceMonth);
+//                String newStringPriceYear = Integer.toString(newIntPriceYear);
+//                String newPriceDate = String.join(newStringPriceDay, newStringPriceMonth, newStringPriceYear);
+//                Prices pricesByCityAndDate = pricesRepository.findByCityNameAndPriceDateNamedParamsNative(cityName, newPriceDate);
+//                prices.add(pricesByCityAndDate);
+//            }
+//        }
+//        return prices;
+//    }
 }

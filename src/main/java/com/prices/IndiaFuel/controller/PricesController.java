@@ -7,8 +7,8 @@ import com.prices.IndiaFuel.service.PricesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 public class PricesController {
@@ -35,5 +35,11 @@ public class PricesController {
     @GetMapping("fuelPrice/state/{stateName}")
     public List<Prices> fuelPricesByStateC(@PathVariable String stateName) throws UnirestException {
         return pricesService.fuelPricesByStateS(stateName);
+    }
+
+    @GetMapping("fuelPrice/lastTenDays")
+    public List<Prices> fuelPriceByCityLastTenDaysC(@RequestParam(value="cityName") String cityName,
+                                                         @RequestParam(value="priceDate") String priceDate){
+       return pricesService.fuelPriceByCityLastTenDaysS(cityName, priceDate);
     }
 }
