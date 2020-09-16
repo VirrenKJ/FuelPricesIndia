@@ -109,7 +109,7 @@ public class PricesService {
     public List<Prices> fuelPriceByCityLastTenDaysS(String cityName, String priceDate){
         return pricesRepository.findByPriceDateLimit(cityName, priceDate);
     }
-//    public ArrayList<Prices> fuelPriceByCityLastTenDaysS(String cityName, String priceDate) {
+//    public List<Prices> fuelPriceByCityLastTenDaysS(String cityName, String priceDate) {
 //        String[] arrOfPriceDate = priceDate.split("-", 3);
 //        String priceYear = arrOfPriceDate[0];
 //        String priceMonth = arrOfPriceDate[1];
@@ -118,7 +118,7 @@ public class PricesService {
 //        int intPriceMonth = Integer.parseInt(priceMonth);
 //        int intPriceDay = Integer.parseInt(priceDay);
 //
-//        ArrayList<Prices> prices = new ArrayList<>();
+//        List<Prices> prices = new ArrayList<>();
 //        //for changing years, in month of january, if date is less that Jan 10th
 //        if (intPriceMonth == 1 && intPriceDay < 10){
 //            for(int i =intPriceDay; i > 0; i--){
@@ -129,7 +129,7 @@ public class PricesService {
 //                String newStringPriceMonth = Integer.toString(newIntPriceMonth);
 //                String newStringPriceYear = Integer.toString(newIntPriceYear);
 //                String newPriceDate = String.join(newStringPriceDay, newStringPriceMonth, newStringPriceYear);
-//                Prices pricesByCityAndDate = pricesRepository.findByCityNameAndPriceDateNamedParamsNative(cityName, newPriceDate);
+//                Prices pricesByCityAndDate = pricesRepository.findByCityNameAndPriceDate(cityName, newPriceDate);
 //                prices.add(pricesByCityAndDate);
 //            }
 //            for(int i =32-(10-intPriceDay); i < 32; i++){
@@ -140,7 +140,7 @@ public class PricesService {
 //                String newStringPriceMonth = Integer.toString(newIntPriceMonth);
 //                String newStringPriceYear = Integer.toString(newIntPriceYear);
 //                String newPriceDate = String.join(newStringPriceDay, newStringPriceMonth, newStringPriceYear);
-//                Prices pricesByCityAndDate = pricesRepository.findByCityNameAndPriceDateNamedParamsNative(cityName, newPriceDate);
+//                Prices pricesByCityAndDate = pricesRepository.findByCityNameAndPriceDate(cityName, newPriceDate);
 //                prices.add(pricesByCityAndDate);
 //            }
 //        }
@@ -175,7 +175,7 @@ public class PricesService {
 //                    String newStringPriceMonth = Integer.toString(newIntPriceMonth);
 //                    String newStringPriceYear = Integer.toString(newIntPriceYear);
 //                    String newPriceDate = String.join(newStringPriceDay, newStringPriceMonth, newStringPriceYear);
-//                    Prices pricesByCityAndDate = pricesRepository.findByCityNameAndPriceDateNamedParamsNative(cityName, newPriceDate);
+//                    Prices pricesByCityAndDate = pricesRepository.findByCityNameAndPriceDate(cityName, newPriceDate);
 //                    prices.add(pricesByCityAndDate);
 //                }
 //                for(int i =29-(10-intPriceDay); i < 29; i++){
@@ -186,7 +186,7 @@ public class PricesService {
 //                    String newStringPriceMonth = Integer.toString(newIntPriceMonth);
 //                    String newStringPriceYear = Integer.toString(newIntPriceYear);
 //                    String newPriceDate = String.join(newStringPriceDay, newStringPriceMonth, newStringPriceYear);
-//                    Prices pricesByCityAndDate = pricesRepository.findByCityNameAndPriceDateNamedParamsNative(cityName, newPriceDate);
+//                    Prices pricesByCityAndDate = pricesRepository.findByCityNameAndPriceDate(cityName, newPriceDate);
 //                    prices.add(pricesByCityAndDate);
 //                }
 //            }
@@ -201,7 +201,7 @@ public class PricesService {
 //                    String newStringPriceMonth = Integer.toString(newIntPriceMonth);
 //                    String newStringPriceYear = Integer.toString(newIntPriceYear);
 //                    String newPriceDate = String.join(newStringPriceDay, newStringPriceMonth, newStringPriceYear);
-//                    Prices pricesByCityAndDate = pricesRepository.findByCityNameAndPriceDateNamedParamsNative(cityName, newPriceDate);
+//                    Prices pricesByCityAndDate = pricesRepository.findByCityNameAndPriceDate(cityName, newPriceDate);
 //                    prices.add(pricesByCityAndDate);
 //                }
 //                for(int i =30-(10-intPriceDay); i < 30; i++){
@@ -212,7 +212,7 @@ public class PricesService {
 //                    String newStringPriceMonth = Integer.toString(newIntPriceMonth);
 //                    String newStringPriceYear = Integer.toString(newIntPriceYear);
 //                    String newPriceDate = String.join(newStringPriceDay, newStringPriceMonth, newStringPriceYear);
-//                    Prices pricesByCityAndDate = pricesRepository.findByCityNameAndPriceDateNamedParamsNative(cityName, newPriceDate);
+//                    Prices pricesByCityAndDate = pricesRepository.findByCityNameAndPriceDate(cityName, newPriceDate);
 //                    prices.add(pricesByCityAndDate);
 //                }
 //            }
@@ -229,7 +229,7 @@ public class PricesService {
 //                String newStringPriceMonth = Integer.toString(newIntPriceMonth);
 //                String newStringPriceYear = Integer.toString(newIntPriceYear);
 //                String newPriceDate = String.join(newStringPriceDay, newStringPriceMonth, newStringPriceYear);
-//                Prices pricesByCityAndDate = pricesRepository.findByCityNameAndPriceDateNamedParamsNative(cityName, newPriceDate);
+//                Prices pricesByCityAndDate = pricesRepository.findByCityNameAndPriceDate(cityName, newPriceDate);
 //                prices.add(pricesByCityAndDate);
 //            }
 //            for(int i =32-(10-intPriceDay); i < 32; i++){
@@ -240,7 +240,7 @@ public class PricesService {
 //                String newStringPriceMonth = Integer.toString(newIntPriceMonth);
 //                String newStringPriceYear = Integer.toString(newIntPriceYear);
 //                String newPriceDate = String.join(newStringPriceDay, newStringPriceMonth, newStringPriceYear);
-//                Prices pricesByCityAndDate = pricesRepository.findByCityNameAndPriceDateNamedParamsNative(cityName, newPriceDate);
+//                Prices pricesByCityAndDate = pricesRepository.findByCityNameAndPriceDate(cityName, newPriceDate);
 //                prices.add(pricesByCityAndDate);
 //            }
 //        }
@@ -254,7 +254,7 @@ public class PricesService {
 //                String newStringPriceMonth = Integer.toString(newIntPriceMonth);
 //                String newStringPriceYear = Integer.toString(newIntPriceYear);
 //                String newPriceDate = String.join(newStringPriceDay, newStringPriceMonth, newStringPriceYear);
-//                Prices pricesByCityAndDate = pricesRepository.findByCityNameAndPriceDateNamedParamsNative(cityName, newPriceDate);
+//                Prices pricesByCityAndDate = pricesRepository.findByCityNameAndPriceDate(cityName, newPriceDate);
 //                prices.add(pricesByCityAndDate);
 //            }
 //        }
@@ -269,7 +269,7 @@ public class PricesService {
 //                String newStringPriceMonth = Integer.toString(newIntPriceMonth);
 //                String newStringPriceYear = Integer.toString(newIntPriceYear);
 //                String newPriceDate = String.join(newStringPriceDay, newStringPriceMonth, newStringPriceYear);
-//                Prices pricesByCityAndDate = pricesRepository.findByCityNameAndPriceDateNamedParamsNative(cityName, newPriceDate);
+//                Prices pricesByCityAndDate = pricesRepository.findByCityNameAndPriceDate(cityName, newPriceDate);
 //                prices.add(pricesByCityAndDate);
 //            }
 //            for(int i =31-(10-intPriceDay); i < 31; i++){
@@ -280,7 +280,7 @@ public class PricesService {
 //                String newStringPriceMonth = Integer.toString(newIntPriceMonth);
 //                String newStringPriceYear = Integer.toString(newIntPriceYear);
 //                String newPriceDate = String.join(newStringPriceDay, newStringPriceMonth, newStringPriceYear);
-//                Prices pricesByCityAndDate = pricesRepository.findByCityNameAndPriceDateNamedParamsNative(cityName, newPriceDate);
+//                Prices pricesByCityAndDate = pricesRepository.findByCityNameAndPriceDate(cityName, newPriceDate);
 //                prices.add(pricesByCityAndDate);
 //            }
 //        }
@@ -294,7 +294,7 @@ public class PricesService {
 //                String newStringPriceMonth = Integer.toString(newIntPriceMonth);
 //                String newStringPriceYear = Integer.toString(newIntPriceYear);
 //                String newPriceDate = String.join(newStringPriceDay, newStringPriceMonth, newStringPriceYear);
-//                Prices pricesByCityAndDate = pricesRepository.findByCityNameAndPriceDateNamedParamsNative(cityName, newPriceDate);
+//                Prices pricesByCityAndDate = pricesRepository.findByCityNameAndPriceDate(cityName, newPriceDate);
 //                prices.add(pricesByCityAndDate);
 //            }
 //        }
