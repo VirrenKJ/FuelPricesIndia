@@ -22,7 +22,7 @@ public class PricesController {
     }
 
     @GetMapping("fuelPrice")
-    public FuelPrices fuelPricesByDateC(@RequestParam(value="date") String priceDate) throws UnirestException {
+    public FuelPrices fuelPricesByDateC(@RequestParam(value = "date") String priceDate) throws UnirestException {
         System.out.println("A::");
         return pricesService.fuelPricesByDateS(priceDate);
     }
@@ -38,8 +38,8 @@ public class PricesController {
     }
 
     @GetMapping("fuelPrice/lastTenDays")
-    public List<Prices> fuelPriceByCityLastTenDaysC(@RequestParam(value="cityName") String cityName,
-                                                         @RequestParam(value="priceDate") String priceDate){
-       return pricesService.fuelPriceByCityLastTenDaysS(cityName, priceDate);
+    public List<Prices> fuelPriceByCityLastTenDaysC(@RequestParam(value = "cityName") String cityName,
+                                                    @RequestParam(value = "priceDate") String priceDate) {
+        return pricesService.fuelPriceByCityLastTenDaysS(cityName, priceDate);
     }
 }
